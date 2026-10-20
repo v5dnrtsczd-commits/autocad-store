@@ -70,29 +70,33 @@
         .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); z-index: 998; opacity: 0; pointer-events: none; transition: 0.3s; }
         .cart-overlay.open { opacity: 1; pointer-events: all; }
 
-        .cart-panel { position: fixed; top: 0; left: -100%; width: 100%; max-width: 420px; height: 100vh; background: var(--surface); z-index: 999; display: flex; flex-direction: column; transition: left 0.3s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.1); }
+        /* تم تعديل ارتفاع السلة ليتكيف مع لوحة المفاتيح */
+        .cart-panel { position: fixed; top: 0; left: -100%; width: 100%; max-width: 420px; height: 100%; background: var(--surface); z-index: 999; display: flex; flex-direction: column; transition: left 0.3s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.1); }
         .cart-panel.open { left: 0; }
 
         .cart-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg); }
         .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
 
-        .cart-body { flex-grow: 1; overflow-y: auto; padding: 1.5rem; }
+        .cart-body { flex-grow: 1; overflow-y: auto; padding: 1.5rem; padding-bottom: 120px; } /* مساحة أمان في الأسفل */
         .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--border); }
         .cart-item-info h4 { font-size: 0.95rem; margin-bottom: 5px; }
         .qty-controls { display: flex; align-items: center; gap: 10px; background: var(--bg); padding: 0.3rem; border-radius: 8px; border: 1px solid var(--border); }
         .qty-btn { background: none; border: none; cursor: pointer; width: 25px; font-weight: bold; color: var(--text-main); font-size: 1.1rem;}
         
-        .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); background: var(--bg); }
+        .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); background: var(--bg); position: sticky; bottom: 0; }
         
         .input-group { margin-bottom: 1rem; }
         .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold; }
-        .input-group input { width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; outline: none; }
+        
+        /* تم تعديل حجم الخط في حقل الإدخال لـ 16px لمنع التكبير في الآيفون */
+        .input-group input { width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; outline: none; font-size: 16px; }
         .input-group input:focus { border-color: var(--primary); }
 
         .checkout-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
         .checkout-btn:hover { background: var(--primary-hover); }
 
         footer { text-align: center; padding: 2rem; background: var(--surface); border-top: 1px solid var(--border); color: var(--text-muted); margin-top: 3rem; font-size: 0.9rem; }
+        footer a { color: var(--primary); text-decoration: none; font-weight: bold; }
 
         @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .cart-panel { max-width: 100%; } }
     </style>
@@ -150,7 +154,8 @@
     </aside>
 
     <footer>
-        &copy; 2026 جميع الحقوق محفوظة. خدمات رسم وتصميم مخططات AutoCAD 2D.
+        <p>📞 للتواصل والاستفسار (واتساب فقط): <a href="https://wa.me/966572292742">0572292742</a></p>
+        <p style="margin-top: 10px;">&copy; 2026 جميع الحقوق محفوظة. خدمات رسم وتصميم مخططات AutoCAD 2D.</p>
     </footer>
 
     <script>
